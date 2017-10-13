@@ -24,6 +24,7 @@ namespace XkAarticle
             UserBLL userBLL = new UserBLL();
             var user = userBLL.Login(LoginName,Password);
             LoginUser = user;
+            if (user != null) GotoPage("Main.aspx");
         }
 
         

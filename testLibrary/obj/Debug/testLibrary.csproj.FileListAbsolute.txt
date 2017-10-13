@@ -2,4 +2,3 @@ C:\Users\xuzhicheng\Documents\Visual Studio 2013\Projects\XkArticle\testLibrary\
 C:\Users\xuzhicheng\Documents\Visual Studio 2013\Projects\XkArticle\testLibrary\bin\Debug\testLibrary.pdb
 C:\Users\xuzhicheng\Documents\Visual Studio 2013\Projects\XkArticle\testLibrary\obj\Debug\testLibrary.dll
 C:\Users\xuzhicheng\Documents\Visual Studio 2013\Projects\XkArticle\testLibrary\obj\Debug\testLibrary.pdb
-C:\Users\xuzhicheng\documents\visual studio 2013\Projects\XkArticle\testLibrary\obj\Debug\testLibrary.csprojResolveAssemblyReference.cache

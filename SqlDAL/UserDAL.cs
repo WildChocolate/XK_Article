@@ -42,7 +42,7 @@ namespace SqlDAL
                 var ds = SqlHelper.ExecuteDataset(conn, System.Data.CommandType.Text, string.Format("select * from XK_User where 1=1 and Name='{0}' and Pass='{1}'",LoginName,Password));
                 var tablist = new List<User>();
                 ConvertToList(tablist, ds);
-                return tablist[0];
+                return tablist.Count > 0 ? tablist[0] : null;
             }
         }
 

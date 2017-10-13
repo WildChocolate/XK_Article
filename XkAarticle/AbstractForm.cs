@@ -9,10 +9,27 @@ namespace XkAarticle
 {
     public abstract class AbstractForm:Page
     {
-        public abstract User LoginUser
+        public virtual User LoginUser
         {
-            get;
-            set;
+            get { return Session["User"] as User; }
+            set { Session["User"] = value; }
+        }
+        protected override void OnInit(EventArgs e)
+        {
+            var type = this.GetType();
+            if (!type.Name.ToUpper().Contains("LOGIN"))
+            {
+                if (LoginCheck()) GotoPage("Login.aspx");
+            }
+            base.OnInit(e);
+        }
+        protected bool LoginCheck()
+        {
+            return LoginUser==null;
+        }
+        protected virtual void GotoPage(string Page)
+        {
+            Response.Redirect(Page,true);
         }
     }
 }

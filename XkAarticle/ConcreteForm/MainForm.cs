@@ -5,8 +5,8 @@ using System.Web;
 
 namespace XkAarticle.ConcreteForm
 {
-    public class LoginForm:AbstractForm
+    public class MainForm:AbstractForm
     {
-        
+
     }
 }
