@@ -1,0 +1,11 @@
+C:\Users\xuzhicheng\documents\visual studio 2013\Projects\XkArticle\BLL\bin\Debug\BLL.dll
+C:\Users\xuzhicheng\documents\visual studio 2013\Projects\XkArticle\BLL\bin\Debug\BLL.pdb
+C:\Users\xuzhicheng\documents\visual studio 2013\Projects\XkArticle\BLL\bin\Debug\Factory.dll
+C:\Users\xuzhicheng\documents\visual studio 2013\Projects\XkArticle\BLL\bin\Debug\IDAL.dll
+C:\Users\xuzhicheng\documents\visual studio 2013\Projects\XkArticle\BLL\bin\Debug\Model.dll
+C:\Users\xuzhicheng\documents\visual studio 2013\Projects\XkArticle\BLL\bin\Debug\Factory.pdb
+C:\Users\xuzhicheng\documents\visual studio 2013\Projects\XkArticle\BLL\bin\Debug\IDAL.pdb
+C:\Users\xuzhicheng\documents\visual studio 2013\Projects\XkArticle\BLL\bin\Debug\Model.pdb
+C:\Users\xuzhicheng\documents\visual studio 2013\Projects\XkArticle\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+C:\Users\xuzhicheng\documents\visual studio 2013\Projects\XkArticle\BLL\obj\Debug\BLL.dll
+C:\Users\xuzhicheng\documents\visual studio 2013\Projects\XkArticle\BLL\obj\Debug\BLL.pdb

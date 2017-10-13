@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Libraries.SqlHelper</id>
+    <version>1.0.1</version>
+    <title>Libraries-SqlHelper</title>
+    <authors>ChenDeSheng</authors>
+    <owners>ChenDeSheng</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Libraries-SqlHelper</description>
+    <summary>Libraries-SqlHelper</summary>
+  </metadata>
+</package>

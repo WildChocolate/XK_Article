@@ -1,0 +1,16 @@
+c:\users\xuzhicheng\documents\visual studio 2013\Projects\XkArticle\XkAarticle\bin\XkAarticle.dll.config
+c:\users\xuzhicheng\documents\visual studio 2013\Projects\XkArticle\XkAarticle\bin\XkAarticle.dll
+c:\users\xuzhicheng\documents\visual studio 2013\Projects\XkArticle\XkAarticle\bin\XkAarticle.pdb
+c:\users\xuzhicheng\documents\visual studio 2013\Projects\XkArticle\XkAarticle\obj\Debug\XkAarticle.csprojResolveAssemblyReference.cache
+c:\users\xuzhicheng\documents\visual studio 2013\Projects\XkArticle\XkAarticle\obj\Debug\XkAarticle.dll
+c:\users\xuzhicheng\documents\visual studio 2013\Projects\XkArticle\XkAarticle\obj\Debug\XkAarticle.pdb
+C:\Users\xuzhicheng\documents\visual studio 2013\Projects\XkArticle\XkAarticle\bin\BLL.dll
+C:\Users\xuzhicheng\documents\visual studio 2013\Projects\XkArticle\XkAarticle\bin\Model.dll
+C:\Users\xuzhicheng\documents\visual studio 2013\Projects\XkArticle\XkAarticle\bin\IDAL.dll
+C:\Users\xuzhicheng\documents\visual studio 2013\Projects\XkArticle\XkAarticle\bin\Factory.dll
+C:\Users\xuzhicheng\documents\visual studio 2013\Projects\XkArticle\XkAarticle\bin\BLL.pdb
+C:\Users\xuzhicheng\documents\visual studio 2013\Projects\XkArticle\XkAarticle\bin\Model.pdb
+C:\Users\xuzhicheng\documents\visual studio 2013\Projects\XkArticle\XkAarticle\bin\IDAL.pdb
+C:\Users\xuzhicheng\documents\visual studio 2013\Projects\XkArticle\XkAarticle\bin\Factory.pdb
+C:\Users\xuzhicheng\documents\visual studio 2013\Projects\XkArticle\XkAarticle\bin\SqlDAL.dll
+C:\Users\xuzhicheng\documents\visual studio 2013\Projects\XkArticle\XkAarticle\bin\SqlDAL.pdb
