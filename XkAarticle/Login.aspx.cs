@@ -6,10 +6,11 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using XkAarticle.ConcreteForm;
 
 namespace XkAarticle
 {
-    public partial class Login : System.Web.UI.Page
+    public partial class Login : LoginForm
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -22,9 +23,7 @@ namespace XkAarticle
             string Password = logpass.Value;
             UserBLL userBLL = new UserBLL();
             var user = userBLL.Login(LoginName,Password);
-            user.Name = "Ekko.XU";
-            var result = userBLL.Update(user);
-            
+            LoginUser = user;
         }
 
         
