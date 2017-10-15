@@ -11,17 +11,29 @@ namespace BLL
 {
     public class UserBLL
     {
-        IUser AdministartorDAL = AdministatorFactory.Create();
-        public List<User> GetAll(string WhereString)
+        IUser UserDAL = ActiveProductGeter.CreateProduct<IUser>();
+        public List<User> GetAll(User instance,string WhereString)
         {
-            return AdministartorDAL.GetAll( WhereString);
+            return UserDAL.GetAll(instance, WhereString);
         }
         public User Login(string LoginName,string Password) {
-            return AdministartorDAL.Login(LoginName, Password);
+            return UserDAL.Login(LoginName, Password);
         }
-        public bool Update(User instance)
+        public bool Update(User instance,string WhereString)
         {
-            return AdministartorDAL.Update(instance);
+            return UserDAL.Update(instance, WhereString);
+        }
+        public int Insert(User instance)
+        {
+            return UserDAL.Insert(instance);
+        }
+        public bool Delete(User instance,string WhereString)
+        {
+            return UserDAL.Delete(instance,WhereString);
+        }
+        public User GetOneByID(User instance,int id)
+        {
+            return UserDAL.GetOneByID(instance,id);
         }
     }
 }

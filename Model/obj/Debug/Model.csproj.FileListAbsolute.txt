@@ -2,4 +2,3 @@ c:\users\xuzhicheng\documents\visual studio 2013\Projects\XkArticle\Model\bin\De
 c:\users\xuzhicheng\documents\visual studio 2013\Projects\XkArticle\Model\bin\Debug\Model.pdb
 c:\users\xuzhicheng\documents\visual studio 2013\Projects\XkArticle\Model\obj\Debug\Model.dll
 c:\users\xuzhicheng\documents\visual studio 2013\Projects\XkArticle\Model\obj\Debug\Model.pdb
-C:\Users\xuzhicheng\documents\visual studio 2013\Projects\XkArticle\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache

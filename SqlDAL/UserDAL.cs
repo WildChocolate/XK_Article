@@ -11,99 +11,92 @@ using System.Threading.Tasks;
 
 namespace SqlDAL
 {
-    public class UserDAL:IUser
+    /// <summary>
+    /// user表的具体产品
+    /// </summary>
+    public class UserDAL:AbBase<User>,IUser
     {
-        private void ConvertToList(List<User> tablist,DataSet ds)
-        {
-            var table1 = ds.Tables[0];
-            foreach (DataRow row in table1.Rows)
-            {
-                User admin = new User();
-                Type t = admin.GetType();
-                object val = null;
-                foreach (var prop in t.GetProperties())
-                {
-                    val = row[prop.Name];
-                    prop.SetValue(admin, val);
-                }
-                tablist.Add(admin);
-            }
-        }
-
-
-
-
-
         public User Login(string LoginName, string Password)
         {
             using (SqlConnection conn = new SqlConnection(Utility.SqlServerConnectionString))
             {
                 conn.Open();
                 var ds = SqlHelper.ExecuteDataset(conn, System.Data.CommandType.Text, string.Format("select * from XK_User where 1=1 and Name='{0}' and Pass='{1}'",LoginName,Password));
-                var tablist = new List<User>();
-                ConvertToList(tablist, ds);
+                var tablist = ConvertToList( ds);
                 return tablist.Count > 0 ? tablist[0] : null;
             }
         }
-
-        public bool Insert(User instance)
+        private bool CheckExist(User instance)
         {
-            string commandString = Utility.GetOperationStringBy<User>(Action.Update, instance);
-            SqlParameter[] parameters = Utility.GetParameterArray<User>(Action.Update, instance);
-            var result = SqlHelper.ExecuteNonQuery(Utility.SqlServerConnectionString, CommandType.Text, commandString, parameters);
-            return result > 0;
+            string commandString = Utility.GetOperationStringBy<User>(Action.Select, instance," where 1=1 and [Name]=@Name")  ;
+            SqlParameter param = new SqlParameter( );
+            param.ParameterName = "@Name";
+            param.Value = instance.Name;
+            try
+            {
+                var result = (int)SqlHelper.ExecuteScalar(Utility.SqlServerConnectionString, CommandType.Text, commandString, param);
+                return result > 0;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        public int Insert(User instance)
+        {
+            string commandString = Utility.GetOperationStringBy<User>(Action.Insert, instance);
+            SqlParameter[] parameters = Utility.GetParameterArray<User>(Action.Insert, instance);
+            try
+            {
+                if (CheckExist(instance)) return -2;
+                var result = SqlHelper.ExecuteNonQuery(Utility.SqlServerConnectionString, CommandType.Text, commandString, parameters);
+                return result ;
+            }
+            catch
+            {
+                return -1;
+            }
         }
 
-        public bool Delete(User instance)
+        public bool Delete(User instance,string WhereString)
         {
-            string commandString=Utility.GetOperationStringBy<User>(Action.Delete,instance);
+            string commandString=Utility.GetOperationStringBy<User>(Action.Delete,instance,WhereString);
             var result = SqlHelper.ExecuteNonQuery(Utility.SqlServerConnectionString, CommandType.Text, commandString, new SqlParameter {SqlDbType=SqlDbType.Int, Value=instance.ID });
             return result > 0;
         }
 
-        public bool Update(User instance)
+        public bool Update(User instance,string WhereString)
         {
-            string commandString = Utility.GetOperationStringBy<User>(Action.Update, instance);
+            string commandString = Utility.GetOperationStringBy<User>(Action.Update, instance,WhereString);
             SqlParameter[] parameters = Utility.GetParameterArray<User>(Action.Update, instance);
             var result = SqlHelper.ExecuteNonQuery(Utility.SqlServerConnectionString, CommandType.Text, commandString, parameters);
             return result > 0;
         }
 
-        public List<User> GetAll(string WhereString)
+        public List<User> GetAll(User instance,string WhereString)
         {
             using (SqlConnection conn = new SqlConnection(Utility.SqlServerConnectionString))
             {
                 conn.Open();
-                var ds = SqlHelper.ExecuteDataset(conn, System.Data.CommandType.Text, "select * from XK_User where 1=1 and "+WhereString);
-                var tablist = new List<User>();
-                ConvertToList(tablist, ds);
+                string commandString = Utility.GetOperationStringBy<User>(Action.Select, instance, WhereString);
+                var ds = SqlHelper.ExecuteDataset(conn, System.Data.CommandType.Text, commandString);
+                var tablist = ConvertToList(ds);
                 return tablist;
             }
         }
-
-        public bool Convert(IList<User> Target, DataSet Source)
-        {
-            var table1 = Source.Tables[0];
-            foreach (DataRow row in table1.Rows)
-            {
-                User admin = new User();
-                Type t = admin.GetType();
-                object val = null;
-                foreach (var prop in t.GetProperties())
-                {
-                    val = row[prop.Name];
-                    prop.SetValue(admin, val);
-                }
-                Target.Add(admin);
-            }
-            return Target.Count==Source.Tables[0].Rows.Count;
-        }
-
-
+        
         public User GetOneByID(int id)
         {
-            throw new NotImplementedException();
+            using (SqlConnection conn = new SqlConnection(Utility.SqlServerConnectionString))
+            {
+                conn.Open();
+                var dr = SqlHelper.ExecuteReader(conn, System.Data.CommandType.Text, "select top 1 * from XK_User where ID=@ID " );
+                User user = ConvertToInstance(dr);
+                return user;
+            }
         }
+
+
         
     }
 }

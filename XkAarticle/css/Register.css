@@ -1,0 +1,68 @@
+﻿body {
+    background-color:rgb(225,225,225);
+}
+.main{
+    position:absolute;
+    width:100%;
+    height:100%;
+    top:0px;
+    left:0px;
+    bottom:0px;
+    right:0px;
+}
+header ,footer ,article{
+        width:100%;
+    display:block;
+    box-sizing:border-box;
+}
+article{
+    padding:50px 15%;
+}
+article>.register{
+    padding-left:10%;
+}
+article .caption p{
+    text-align:left;
+    font-size:larger;
+    border-bottom:groove;
+}
+footer{
+    text-align:center;
+    position:absolute;
+    height:60px;
+    bottom:0px;
+}
+header{
+    background-color:cadetblue   ;
+}
+header>p{
+    font-family:'Yu Gothic','Segoe UI Symbol';
+    letter-spacing:15px;
+    text-indent:30px;
+    font-size:x-large;
+    margin:-0px 0px;
+    padding:15px 0px;
+}
+.side-img-box{
+    float:left;
+    width:39%;
+    height:90%;
+    min-height:180px;
+    border-right:1px solid skyblue;
+    background-image:url('/img/registersideimg.png');
+    background-size:cover;
+}
+#registerForm{
+    width:60%;
+    float:left;
+}
+#registerForm div{
+    display:inherit;
+    margin:10px;
+}
+#registerForm label,#registerForm input{
+    padding:10px;
+}
+#registerForm input{
+    min-width:200px;
+}

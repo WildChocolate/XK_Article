@@ -40,6 +40,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IBaseOperation.cs" />
+    <Compile Include="ImplementFlagAttribute.cs" />
+    <Compile Include="IRole.cs" />
     <Compile Include="IUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -33,25 +33,29 @@ namespace SqlDAL
                     return ConfigurationManager.ConnectionStrings["ServerConnection"].ToString();
                 }
             }
-            public static string GetOperationStringBy<T>(Action action, T instance) {
+            public static string GetOperationStringBy<T>(Action action, T instance,string WhereString="") {
                 var type = instance.GetType();
                 string tableName = type.Name;
                 string s = "";
                 switch (action)
                 {
                     case Action.Delete:
-                        s = string.Format("delete from XK_{0} where ID={1}",tableName,type.GetProperty("ID").GetValue(instance));
+                        s = string.Format("delete from XK_{0} ",tableName);
                         break;
                     case Action.Insert:
                         var items=GetInsertString(type);
-                        s = string.Format("insert into XK_{0} ({1}) values({2})",tableName,items.Item1,items.Item2);
+                        s = string.Format("insert into XK_{0} ({1}) values({2}) ",tableName,items.Item1,items.Item2);
                         break;
                     case Action.Update:
-                        s = string.Format("update XK_{0} set {1}", tableName, GetUpdateString(type));
+                        s = string.Format("update XK_{0} set {1} ", tableName, GetUpdateString(type));
                         break;
                     case Action.Select:
-                        s = string.Format("select * from XK_{0}",tableName);
+                        s = string.Format("select * from XK_{0} ",tableName);
                         break;
+                }
+                if (WhereString.Length > 0 && action!=Action.Insert)
+                {
+                    s += " and  " + WhereString;
                 }
                 return s;
             }

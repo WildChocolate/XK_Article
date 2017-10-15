@@ -10,60 +10,60 @@
 namespace XkAarticle {
     
     
-    public partial class Login {
+    public partial class Register {
         
         /// <summary>
-        /// form1 控件。
+        /// registerForm 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.HtmlControls.HtmlForm registerForm;
         
         /// <summary>
-        /// logname 控件。
+        /// account 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText logname;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText account;
         
         /// <summary>
-        /// logpass 控件。
+        /// password 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputPassword logpass;
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword password;
         
         /// <summary>
-        /// Submit 控件。
+        /// confirm 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputSubmit Submit;
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword confirm;
         
         /// <summary>
-        /// Register 控件。
+        /// Button1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputSubmit Register;
+        protected global::System.Web.UI.WebControls.Button Button1;
         
         /// <summary>
-        /// TipsLabel 控件。
+        /// lbTip 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label TipsLabel;
+        protected global::System.Web.UI.WebControls.Label lbTip;
     }
 }

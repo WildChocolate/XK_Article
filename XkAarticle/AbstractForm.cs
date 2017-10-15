@@ -12,7 +12,11 @@ namespace XkAarticle
         public virtual User LoginUser
         {
             get { return Session["User"] as User; }
-            set { Session["User"] = value; }
+            set
+            {
+                Session["User"] = value; 
+                Session.Timeout = 20; 
+            }
         }
         protected override void OnInit(EventArgs e)
         {
@@ -30,6 +34,10 @@ namespace XkAarticle
         protected virtual void GotoPage(string Page)
         {
             Response.Redirect(Page,true);
+        }
+        protected virtual void RunScript(string script,string key="myscript")
+        {
+            ClientScript.RegisterStartupScript(ClientScript.GetType(), key, "<script>"+script+"</script>",false);
         }
     }
 }

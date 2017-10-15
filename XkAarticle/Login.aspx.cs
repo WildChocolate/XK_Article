@@ -25,8 +25,12 @@ namespace XkAarticle
             var user = userBLL.Login(LoginName,Password);
             LoginUser = user;
             if (user != null) GotoPage("Main.aspx");
+            else { TipsLabel.Text = "帐号或密码错误！！！"; }
         }
 
-        
+        protected void Register_ServerClick(object sender, EventArgs e)
+        {
+            GotoPage("Register.aspx");
+        }
     }
 }

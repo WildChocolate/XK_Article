@@ -28,7 +28,7 @@
 						<form action="#" name="f" method="post">
 							<div class="input_outer">
 								<span class="u_user"></span>
-								<input name="logname" id="logname" runat="server" class="text" style="color: #FFFFFF !important" type="text" placeholder="请输入账户">
+								<input name="logname" id="logname" runat="server" class="text" style="color: #FFFFFF !important;" type="text" placeholder="请输入账户">
 							</div>
 							<div class="input_outer">
 								<span class="us_uer"></span>
@@ -36,8 +36,13 @@
 							</div>
 							<div class="mb2">
                                 <%--<input class="act-but submit" id="Submit" runat="server" href="javascript:;" style="color: #FFFFFF" onserverclick="Submit_ServerClick">登录</input>--%>
-                                <input class="act-but submit" type="submit" id="Submit" runat="server" value="登录" style="color: #FFFFFF" onclick="return true;" onserverclick="Submit_ServerClick"/>
+                                <input class="act-but submit" type="submit" id="Submit" runat="server" value="登录" style="color: #FFFFFF;display:inline-block;" onclick="return true;" onserverclick="Submit_ServerClick"/>
+                                <input class="act-but submit" type="submit" id="Register" runat="server" value="注册" style="color: #FFFFFF;display:inline-block;" onclick="return true;" onserverclick="Register_ServerClick"/>
+                                <p>
+                                    <asp:Label ID="TipsLabel" runat="server" Text=""></asp:Label>
+                                </p>
 							</div>
+                            
 						</form>
 					</div>
 				</div>
