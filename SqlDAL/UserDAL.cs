@@ -28,7 +28,7 @@ namespace SqlDAL
         }
         private bool CheckExist(User instance)
         {
-            string commandString = Utility.GetOperationStringBy<User>(Action.Select, instance," where 1=1 and [Name]=@Name")  ;
+            string commandString = Utility.GetOperationStringBy<User>(ActionType.Select, instance," where 1=1 and [Name]=@Name")  ;
             SqlParameter param = new SqlParameter( );
             param.ParameterName = "@Name";
             param.Value = instance.Name;
@@ -44,8 +44,8 @@ namespace SqlDAL
         }
         public int Insert(User instance)
         {
-            string commandString = Utility.GetOperationStringBy<User>(Action.Insert, instance);
-            SqlParameter[] parameters = Utility.GetParameterArray<User>(Action.Insert, instance);
+            string commandString = Utility.GetOperationStringBy<User>(ActionType.Insert, instance);
+            SqlParameter[] parameters = Utility.GetParameterArray<User>(ActionType.Insert, instance);
             try
             {
                 if (CheckExist(instance)) return -2;
@@ -60,15 +60,15 @@ namespace SqlDAL
 
         public bool Delete(User instance,string WhereString)
         {
-            string commandString=Utility.GetOperationStringBy<User>(Action.Delete,instance,WhereString);
+            string commandString=Utility.GetOperationStringBy<User>(ActionType.Delete,instance,WhereString);
             var result = SqlHelper.ExecuteNonQuery(Utility.SqlServerConnectionString, CommandType.Text, commandString, new SqlParameter {SqlDbType=SqlDbType.Int, Value=instance.ID });
             return result > 0;
         }
 
         public bool Update(User instance,string WhereString)
         {
-            string commandString = Utility.GetOperationStringBy<User>(Action.Update, instance,WhereString);
-            SqlParameter[] parameters = Utility.GetParameterArray<User>(Action.Update, instance);
+            string commandString = Utility.GetOperationStringBy<User>(ActionType.Update, instance,WhereString);
+            SqlParameter[] parameters = Utility.GetParameterArray<User>(ActionType.Update, instance);
             var result = SqlHelper.ExecuteNonQuery(Utility.SqlServerConnectionString, CommandType.Text, commandString, parameters);
             return result > 0;
         }
@@ -78,7 +78,7 @@ namespace SqlDAL
             using (SqlConnection conn = new SqlConnection(Utility.SqlServerConnectionString))
             {
                 conn.Open();
-                string commandString = Utility.GetOperationStringBy<User>(Action.Select, instance, WhereString);
+                string commandString = Utility.GetOperationStringBy<User>(ActionType.Select, instance, WhereString);
                 var ds = SqlHelper.ExecuteDataset(conn, System.Data.CommandType.Text, commandString);
                 var tablist = ConvertToList(ds);
                 return tablist;

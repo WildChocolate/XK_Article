@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SqlDAL
 {
-    public enum Action
+    public enum ActionType
     {
         Select,
         Update,
@@ -33,29 +33,29 @@ namespace SqlDAL
                     return ConfigurationManager.ConnectionStrings["ServerConnection"].ToString();
                 }
             }
-            public static string GetOperationStringBy<T>(Action action, T instance,string WhereString="") {
+            public static string GetOperationStringBy<T>(ActionType action, T instance,string WhereString="") {
                 var type = instance.GetType();
                 string tableName = type.Name;
                 string s = "";
                 switch (action)
                 {
-                    case Action.Delete:
-                        s = string.Format("delete from XK_{0} ",tableName);
+                    case ActionType.Delete:
+                        s = string.Format("delete from XK_{0} where 1=1 ", tableName);
                         break;
-                    case Action.Insert:
+                    case ActionType.Insert:
                         var items=GetInsertString(type);
                         s = string.Format("insert into XK_{0} ({1}) values({2}) ",tableName,items.Item1,items.Item2);
                         break;
-                    case Action.Update:
-                        s = string.Format("update XK_{0} set {1} ", tableName, GetUpdateString(type));
+                    case ActionType.Update:
+                        s = string.Format("update XK_{0} set {1} where 1=1 ", tableName, GetUpdateString(type));
                         break;
-                    case Action.Select:
-                        s = string.Format("select * from XK_{0} ",tableName);
+                    case ActionType.Select:
+                        s = string.Format("select * from XK_{0} where 1=1 ", tableName);
                         break;
                 }
-                if (WhereString.Length > 0 && action!=Action.Insert)
+                if (WhereString.Length > 0 && action!=ActionType.Insert)
                 {
-                    s += " and  " + WhereString;
+                    s += " and " + WhereString;
                 }
                 return s;
             }
@@ -82,7 +82,7 @@ namespace SqlDAL
                 s += " where ID=@ID";
                 return s;
             }
-            public static SqlParameter[] GetParameterArray<T>(Action action,T instance)
+            public static SqlParameter[] GetParameterArray<T>(ActionType action,T instance)
             {
                 Type type = instance.GetType();
                 List<SqlParameter> listParameter = new List<SqlParameter>();
@@ -97,7 +97,7 @@ namespace SqlDAL
                         idParameter.ParameterName="@"+info.Name;
                     }
                 }
-                if (action == Action.Update)
+                if (action == ActionType.Update)
                 {
                     listParameter.Add(idParameter);
                 }

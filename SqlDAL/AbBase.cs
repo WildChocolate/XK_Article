@@ -58,7 +58,7 @@ namespace SqlDAL
             using (SqlConnection conn = new SqlConnection(Utility.SqlServerConnectionString))
             {
                 conn.Open();
-                string commandString = Utility.GetOperationStringBy<T>(Action.Select, instance, " where ID=@ID");
+                string commandString = Utility.GetOperationStringBy<T>(ActionType.Select, instance, " where ID=@ID");
                 var param=new SqlParameter();
                 param.ParameterName="@ID";
                 param.Value=id;
