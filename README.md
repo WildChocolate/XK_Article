@@ -19,5 +19,5 @@
         
       这时你可能还会想问，为什么 不直接 给  T 类型传入SqlDAL的类，这样直接根据类名就可以获取目标产品类，还不用设置特性，增加工作量。  
       因为我想 BLL层 只根 IDAL层联系，如果直接传入具体产品类就得引用SqlDAL,会跟产品库发生联系。
-       ![image](http://github.com/WildChocolate/XK_Article/raw/master/ScreenShot/BLL&IDAL.png)
+![image](http://github.com/WildChocolate/XK_Article/raw/master/ScreenShot/BLL&IDAL.png)
       
