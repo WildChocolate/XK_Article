@@ -14,9 +14,10 @@
         。。。 并非 一般例子中的直接创建并返回 那些与工厂相关产品的类    
         
 ```eg : 
-        AbstractFactory factorysubA = new FactoryA();
-        AbstractFactory factorysubA = new FactoryB();
-        AbstractFactory factorysubA = new FactoryB();
+        AbstractFactory factorysub;
+                factorysub = new FactoryA();
+                factorysub = new FactoryB();
+                factorysub = new FactoryC();
 ```
 
      为什么？？？
