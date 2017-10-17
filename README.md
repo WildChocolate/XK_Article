@@ -11,12 +11,12 @@
    
         再通过反射生成具体工厂，具体工厂在本例中 应该相当于是 SqlDAL（也可以是AccessDAL,MySqlDAL,如果有的话！)  
         整个程序集  
-        。。。 并非 一般例子中的直接创建并返回 那些与工厂相关产品的类        
-```
-eg : 
-* AbstractFactory factorysubA = new FactoryA();
-* AbstractFactory factorysubA = new FactoryB();
-* AbstractFactory factorysubA = new FactoryB();
+        。。。 并非 一般例子中的直接创建并返回 那些与工厂相关产品的类    
+        
+```eg : 
+        AbstractFactory factorysubA = new FactoryA();
+        AbstractFactory factorysubA = new FactoryB();
+        AbstractFactory factorysubA = new FactoryB();
 ```
 
      为什么？？？
