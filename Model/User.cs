@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class User
+    public class User:tblBase
     {
-        public int ID { get; set; }
-
         public string Name { get; set; }
         public string Pass { get; set; }
         public int RoleID { get; set; } 

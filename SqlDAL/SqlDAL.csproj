@@ -41,6 +41,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AbBase.cs" />
+    <Compile Include="ArticleDAL.cs" />
+    <Compile Include="ColumnDAL.cs" />
+    <Compile Include="ConfigDAL.cs" />
+    <Compile Include="FriendlyLinkDAL.cs" />
+    <Compile Include="CommentDAL.cs" />
+    <Compile Include="NoticeDAL.cs" />
     <Compile Include="RoleDAL.cs" />
     <Compile Include="UserDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

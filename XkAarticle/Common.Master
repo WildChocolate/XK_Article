@@ -1,0 +1,41 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Common.master.cs" Inherits="XkAarticle.Common" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link href="WebFormCss/Generic.css" rel="stylesheet"/>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <div class="Main">
+        <header>
+            <div class="HLeft">
+                <h2>XK_Article</h2>
+            </div>
+            <div class="HRight">
+                <h2><a>写文章</a></h2>
+            </div>
+            <div class="HCenter">
+                <ul>
+                    <li><a>发现</a></li>
+                    <li><a>关注</a></li>
+                    <li><a>消息</a></li>
+                    <li><input  type="text" placeholder="搜索"/></li>
+                </ul>
+            </div>
+        </header>
+        <article>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            
+            </asp:ContentPlaceHolder>
+        </article>
+        <footer>
+
+        </footer>
+    </div>
+</body>
+</html>

@@ -39,8 +39,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IArticle.cs" />
+    <Compile Include="IColumn.cs" />
+    <Compile Include="IComment.cs" />
+    <Compile Include="IConfig.cs" />
     <Compile Include="IBaseOperation.cs" />
     <Compile Include="ImplementFlagAttribute.cs" />
+    <Compile Include="INotice.cs" />
+    <Compile Include="IFriendlyLink.cs" />
     <Compile Include="IRole.cs" />
     <Compile Include="IUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class Role
+    public class Role:tblBase
     {
-        public int ID { get; set; }
+        
         public string Name { get; set; }
         public string AdminSetting { get; set; }
         public string Setting { get; set; }

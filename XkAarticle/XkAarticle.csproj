@@ -77,10 +77,19 @@
     <Content Include="Main.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="Web.config" />
+    <Content Include="WebFormCss\Generic.css" />
+    <Content Include="WebFormImg\羽毛笔.png" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AbstractForm.cs">
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Common.Master.cs">
+      <DependentUpon>Common.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Common.Master.designer.cs">
+      <DependentUpon>Common.Master</DependentUpon>
     </Compile>
     <Compile Include="ConcreteForm\LoginForm.cs">
       <SubType>ASPXCodeBehind</SubType>
@@ -112,6 +121,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Common.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

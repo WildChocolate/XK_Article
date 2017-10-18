@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class Article
+    public class Article:tblBase
     {
-        public int ID { get; set; }
         public int ColumnID { get; set; }
         public string Title { get; set; }
         public string Author { get; set; }

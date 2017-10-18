@@ -9,31 +9,36 @@ using IDAL;
 
 namespace BLL
 {
-    public class UserBLL
+    public class UserBLL:BaseBLL<User>
     {
         IUser UserDAL = ActiveProductGeter.CreateProduct<IUser>();
-        public List<User> GetAll(User instance,string WhereString)
+        //public List<User> GetAll(User instance, string WhereString)
+        //{
+        //    return UserDAL.GetAll(instance, WhereString);
+        //}
+        public User Login(string LoginName, string Password)
         {
-            return UserDAL.GetAll(instance, WhereString);
-        }
-        public User Login(string LoginName,string Password) {
             return UserDAL.Login(LoginName, Password);
         }
-        public bool Update(User instance,string WhereString)
+        //public bool Update(User instance, string WhereString)
+        //{
+        //    return UserDAL.Update(instance, WhereString);
+        //}
+        //public int Insert(User instance)
+        //{
+        //    return UserDAL.Insert(instance);
+        //}
+        //public bool Delete(User instance, string WhereString)
+        //{
+        //    return UserDAL.Delete(instance, WhereString);
+        //}
+        //public User GetOneByID(User instance, int id)
+        //{
+        //    return UserDAL.GetOneByID(instance, id);
+        //}
+        protected override IBaseOperation<User> ConcreteDAL
         {
-            return UserDAL.Update(instance, WhereString);
-        }
-        public int Insert(User instance)
-        {
-            return UserDAL.Insert(instance);
-        }
-        public bool Delete(User instance,string WhereString)
-        {
-            return UserDAL.Delete(instance,WhereString);
-        }
-        public User GetOneByID(User instance,int id)
-        {
-            return UserDAL.GetOneByID(instance,id);
+            get { return UserDAL; }
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -12,7 +13,7 @@ namespace SqlDAL
     /// 定义了其它实体类（实体产品）均有的一些公共方法，如转换，所有的实体产品都继承此类，以获得通用方法。
     /// </summary>
     /// <typeparam name="T">具体的模型类，定义自model</typeparam>
-    public abstract class AbBase<T> where T:class,new()
+    public abstract class AbBase<T> where T:tblBase,new ()
     {
         protected List<T> ConvertToList( DataSet ds)
         {
@@ -66,6 +67,57 @@ namespace SqlDAL
                 var dr = SqlHelper.ExecuteReader(conn, System.Data.CommandType.Text,commandString,param);
                 T obj = ConvertToInstance(dr);
                 return obj;
+            }
+        }
+        protected abstract bool CheckExist(T instance);
+        
+        public int Insert(T instance)
+        {
+            string commandString = Utility.GetOperationStringBy<T>(ActionType.Insert, instance);
+            SqlParameter[] parameters = Utility.GetParameterArray<T>(ActionType.Insert, instance);
+            try
+            {
+                if (CheckExist(instance)) return -2;
+                var result = SqlHelper.ExecuteNonQuery(Utility.SqlServerConnectionString, CommandType.Text, commandString, parameters);
+                return result;
+            }
+            catch
+            {
+                return -1;
+            }
+        }
+        public bool Delete(T instance, string WhereString)
+        {
+            string commandString = Utility.GetOperationStringBy<T>(ActionType.Delete, instance, WhereString);
+            var result = SqlHelper.ExecuteNonQuery(Utility.SqlServerConnectionString, CommandType.Text, commandString, new SqlParameter { SqlDbType = SqlDbType.Int, Value = instance.ID });
+            return result > 0;
+        }
+        public bool Update(T instance, string WhereString)
+        {
+            string commandString = Utility.GetOperationStringBy<T>(ActionType.Update, instance, WhereString);
+            SqlParameter[] parameters = Utility.GetParameterArray<T>(ActionType.Update, instance);
+            var result = SqlHelper.ExecuteNonQuery(Utility.SqlServerConnectionString, CommandType.Text, commandString, parameters);
+            return result > 0;
+        }
+        public List<T> GetAll(T instance, string WhereString)
+        {
+            using (SqlConnection conn = new SqlConnection(Utility.SqlServerConnectionString))
+            {
+                conn.Open();
+                string commandString = Utility.GetOperationStringBy<T>(ActionType.Select, instance, WhereString);
+                var ds = SqlHelper.ExecuteDataset(conn, System.Data.CommandType.Text, commandString);
+                var tablist = ConvertToList(ds);
+                return tablist;
+            }
+        }
+        public T GetOneByID(int id)
+        {
+            using (SqlConnection conn = new SqlConnection(Utility.SqlServerConnectionString))
+            {
+                conn.Open();
+                var dr = SqlHelper.ExecuteReader(conn, System.Data.CommandType.Text, "select top 1 * from XK_User where ID=@ID ");
+                T instance = ConvertToInstance(dr);
+                return instance;
             }
         }
     }

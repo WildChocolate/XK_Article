@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class Column
+    public class Column:tblBase
     {
-        public int ID { get; set; }
+        
         public string Title { get; set; }
         public string Code { get; set; }
     }

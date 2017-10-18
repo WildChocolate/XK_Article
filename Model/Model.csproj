@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="tblBase.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Article.cs" />
     <Compile Include="Column.cs" />

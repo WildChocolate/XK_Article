@@ -27,8 +27,8 @@ namespace Factory
         /// <summary>
         /// assembly获取在配置文件中指定实际使用的工厂名称（程序集）
         /// </summary>
-        static string assembly = System.Configuration.ConfigurationManager.AppSettings["ConcreteFactory"].ToString();
-        
+        static string assembleName = System.Configuration.ConfigurationManager.AppSettings["ConcreteFactory"].ToString();
+        static Assembly assembly = System.Reflection.Assembly.Load(assembleName);
         /// <summary>
         /// 用于获取动态产品的方法
         /// </summary>
@@ -39,9 +39,9 @@ namespace Factory
             var type = typeof(T);
             var attribute = type.GetCustomAttribute<ImplementFlagAttribute>();
             var ImplementClassName = attribute.Flag;
-            string className = assembly +"." +ImplementClassName;
-            dynamic o = System.Reflection.Assembly.Load(assembly).CreateInstance(className, false);
-            var result = Activator.CreateInstance(assembly,className).Unwrap(); 
+            string className = assembleName + "." + ImplementClassName;
+            dynamic instance = assembly.CreateInstance(className, false);
+            var result = Activator.CreateInstance(assembleName, className).Unwrap(); 
             // 用配置文件指定的类组合
             return (T)result;
         }

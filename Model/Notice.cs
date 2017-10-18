@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class Notice
+    public class Notice:tblBase
     {
-        public int ID { get; set; }
+        
         public string Title { get; set; }
         public string Author { get; set; }
         public DateTime PostDate { get; set; }

@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class Comment
+    public class Comment:tblBase
     {
-        public int ID { get; set; }
         public string ArticleID { get; set; }
         public string Title { get; set; }
         public string Author { get; set; }

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class FriendlyLink
+    public class FriendlyLink:tblBase
     {
-        public int ID { get; set; }
+        
         public string Title { get; set; }
         public int IsPic { get; set; }
         public string PicUrl { get; set; }
