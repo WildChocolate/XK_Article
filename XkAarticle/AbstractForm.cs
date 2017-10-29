@@ -37,7 +37,7 @@ namespace XkAarticle
         }
         protected virtual void RunScript(string script,string key="myscript")
         {
-            ClientScript.RegisterStartupScript(ClientScript.GetType(), key, "<script>"+script+"</script>",false);
+            ClientScript.RegisterStartupScript(ClientScript.GetType(), null, "<script>"+script+"</script>",false);
         }
     }
 }

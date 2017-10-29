@@ -16,8 +16,12 @@
             <div class="HLeft">
                 <h2>XK_Article</h2>
             </div>
+            <div id="Manager">
+                <a href="Administrate/Main.aspx" target="_self">文章管理</a>
+            </div>
             <div class="HRight">
-                <h2><a>写文章</a></h2>
+                
+                <h2><a href="WriteArticle.aspx" target="_self">写文章</a></h2>
             </div>
             <div class="HCenter">
                 <ul>
@@ -29,6 +33,7 @@
             </div>
         </header>
         <article>
+            <div class="AHeader"></div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             
             </asp:ContentPlaceHolder>

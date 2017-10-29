@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="AbBase.cs" />
     <Compile Include="ArticleDAL.cs" />
+    <Compile Include="AvatarDAL.cs" />
     <Compile Include="ColumnDAL.cs" />
     <Compile Include="ConfigDAL.cs" />
     <Compile Include="FriendlyLinkDAL.cs" />

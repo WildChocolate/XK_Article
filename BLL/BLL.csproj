@@ -40,12 +40,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ArticleBLL.cs" />
+    <Compile Include="AvatarBLL.cs" />
     <Compile Include="BaseBLL.cs" />
     <Compile Include="ColumnBLL.cs" />
     <Compile Include="CommentBLL.cs" />
     <Compile Include="ConfigBLL.cs" />
     <Compile Include="FriendlyLinkBLL.cs" />
     <Compile Include="NoticeBLL.cs" />
+    <Compile Include="RightsBLL.cs" />
     <Compile Include="RoleBLL.cs" />
     <Compile Include="UserBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

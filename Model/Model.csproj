@@ -39,6 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Avatar.cs" />
+    <Compile Include="Rights.cs" />
     <Compile Include="tblBase.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Article.cs" />

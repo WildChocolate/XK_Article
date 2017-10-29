@@ -60,10 +60,17 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Administrate\css\AdminMain.css" />
+    <Content Include="Administrate\Main.aspx" />
+    <Content Include="Administrate\Verify\FrmQueryArticle.aspx" />
+    <Content Include="Administrate\Verify\FrmQueryUser.aspx" />
+    <Content Include="ArticleContent.aspx" />
+    <Content Include="WebFormCss\ArticleContent.css" />
+    <Content Include="WriteArticle.aspx" />
     <Content Include="css\component.css" />
     <Content Include="css\demo.css" />
     <Content Include="css\normalize.css" />
-    <Content Include="css\Register.css" />
+    <Content Include="WebFormCss\Register.css" />
     <Content Include="img\demo-1-bg.jpg" />
     <Content Include="img\login_ico.png" />
     <Content Include="img\registersideimg.png" />
@@ -77,12 +84,55 @@
     <Content Include="Main.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="Web.config" />
+    <Content Include="WebFormCss\Article.css" />
     <Content Include="WebFormCss\Generic.css" />
+    <Content Include="WebFormCss\Main.css" />
     <Content Include="WebFormImg\羽毛笔.png" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AbstractForm.cs">
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrate\Main.aspx.cs">
+      <DependentUpon>Main.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrate\Main.aspx.designer.cs">
+      <DependentUpon>Main.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administrate\Verify\FrmQueryArticle.aspx.cs">
+      <DependentUpon>FrmQueryArticle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrate\Verify\FrmQueryArticle.aspx.designer.cs">
+      <DependentUpon>FrmQueryArticle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administrate\Verify\FrmQueryUser.aspx.cs">
+      <DependentUpon>FrmQueryUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrate\Verify\FrmQueryUser.aspx.designer.cs">
+      <DependentUpon>FrmQueryUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ArticleContent.aspx.cs">
+      <DependentUpon>ArticleContent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ArticleContent.aspx.designer.cs">
+      <DependentUpon>ArticleContent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Test\QureyArticleForm.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Test\VerifyArticleForm.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WriteArticle.aspx.cs">
+      <DependentUpon>WriteArticle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WriteArticle.aspx.designer.cs">
+      <DependentUpon>WriteArticle.aspx</DependentUpon>
     </Compile>
     <Compile Include="Common.Master.cs">
       <DependentUpon>Common.Master</DependentUpon>
@@ -91,10 +141,10 @@
     <Compile Include="Common.Master.designer.cs">
       <DependentUpon>Common.Master</DependentUpon>
     </Compile>
-    <Compile Include="ConcreteForm\LoginForm.cs">
+    <Compile Include="Test\LoginForm.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ConcreteForm\MainForm.cs">
+    <Compile Include="Test\MainForm.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Login.aspx.cs">
@@ -122,6 +172,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Common.Master" />
+    <None Include="Properties\PublishProfiles\Config.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -134,6 +185,10 @@
       <Project>{b89f360e-4335-4087-b36b-a6440cabc31c}</Project>
       <Name>BLL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\IDAL\IDAL.csproj">
+      <Project>{1ff8c20b-1d6b-44dd-9792-64a5e5990d2b}</Project>
+      <Name>IDAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{8797ccb2-d682-4a15-a157-55b67bc118e6}</Project>
       <Name>Model</Name>
@@ -143,7 +198,11 @@
       <Name>SqlDAL</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Administrate\Individual\" />
+    <Folder Include="Administrate\js\" />
+    <Folder Include="ConcreteForm\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

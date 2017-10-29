@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
+    [Serializable]
     public class Comment:tblBase
     {
         public string ArticleID { get; set; }

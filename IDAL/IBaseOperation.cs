@@ -26,5 +26,7 @@ namespace IDAL
         bool Update(T instance, string WhereString);
         List<T> GetAll(T instance,string WhereString);
         T GetOneByID(T instance,int id);
+        List<T> GetDataByCommandString(string command, string WhereString);
+        int UpdateByCommandString(string command, string WhereString);
     }
 }

@@ -3,7 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -19,21 +21,27 @@ namespace SqlDAL
         {
             var table1 = ds.Tables[0];
             List<T> tablist = new List<T>();
+            var ColumnNames=new List<string>();
+            foreach (DataColumn i in table1.Columns)
+            {
+                ColumnNames.Add(i.ColumnName);
+            }
             foreach (DataRow row in table1.Rows)
             {
                 T admin = new T();
                 Type t = admin.GetType();
                 object val = null;
-                foreach (var prop in t.GetProperties())
-                {
-                    val = row[prop.Name];
-                    prop.SetValue(admin, val);
-                }
+                    foreach (var Name in ColumnNames)
+                    {
+                            var prop = t.GetProperty(Name);
+                            val = row[prop.Name];
+                            prop.SetValue(admin, ConvertTypeToValue(prop,val));
+                    }
                 tablist.Add(admin);
             }
             return tablist;
         }
-        protected T ConvertToInstance( SqlDataReader reader)
+        protected T ConvertToInstance(SqlDataReader reader)
         {
             if (reader.HasRows)
             {
@@ -45,7 +53,7 @@ namespace SqlDAL
                     foreach (var prop in t.GetProperties())
                     {
                         val = reader[prop.Name];
-                        prop.SetValue(instance, val);
+                        prop.SetValue(instance, ConvertTypeToValue(prop, val));
                     }
                     return instance;
                 }
@@ -54,12 +62,45 @@ namespace SqlDAL
             }
             return null;
         }
+        object ConvertTypeToValue(PropertyInfo prop,object val)
+        {
+            var TypeName = prop.PropertyType.Name;
+            //对是否泛型nullable 进行判断
+            if (prop.PropertyType.IsGenericType && prop.PropertyType.GetGenericTypeDefinition() == typeof(Nullable<>))
+            {
+                if (val == DBNull.Value)
+                        return null;
+                //获取 此nullable的根类型
+                var nullableType= prop.PropertyType.GetGenericArguments()[0];
+                //如果为nullable类型且为 datetime， 根据传入值进行转换
+                if (nullableType.Name.Contains("Date"))
+                {
+                        return Convert.ToDateTime(val);
+                }
+                else
+                    return Convert.ToString(val);
+            }
+            else if (TypeName.Contains("Int"))
+            {
+                return Convert.ToInt32(val);
+            }
+            else if (TypeName.Contains("Date")) {
+                if (DBNull.Value == val) return null;
+                return Convert.ToDateTime(val);
+            }
+            else if (TypeName.Equals("Boolean"))
+            {
+                return Convert.ToBoolean(val);
+            }
+            else return Convert.ToString(val);
+        }
+       
         public T GetOneByID(T instance,int id)
         {
             using (SqlConnection conn = new SqlConnection(Utility.SqlServerConnectionString))
             {
                 conn.Open();
-                string commandString = Utility.GetOperationStringBy<T>(ActionType.Select, instance, " where ID=@ID");
+                string commandString = Utility.GetOperationStringBy<T>(ActionType.Select, instance, " ID=@ID");
                 var param=new SqlParameter();
                 param.ParameterName="@ID";
                 param.Value=id;
@@ -71,15 +112,15 @@ namespace SqlDAL
         }
         protected abstract bool CheckExist(T instance);
         
-        public int Insert(T instance)
+        public virtual int Insert(T instance)
         {
             string commandString = Utility.GetOperationStringBy<T>(ActionType.Insert, instance);
             SqlParameter[] parameters = Utility.GetParameterArray<T>(ActionType.Insert, instance);
             try
             {
                 if (CheckExist(instance)) return -2;
-                var result = SqlHelper.ExecuteNonQuery(Utility.SqlServerConnectionString, CommandType.Text, commandString, parameters);
-                return result;
+                var result = SqlHelper.ExecuteScalar(Utility.SqlServerConnectionString, CommandType.Text, commandString, parameters);
+                return Convert.ToInt32(result);
             }
             catch
             {
@@ -118,6 +159,37 @@ namespace SqlDAL
                 var dr = SqlHelper.ExecuteReader(conn, System.Data.CommandType.Text, "select top 1 * from XK_User where ID=@ID ");
                 T instance = ConvertToInstance(dr);
                 return instance;
+            }
+        }
+        public  List<T> GetDataByCommandString(string Command,string WhereString )
+        {
+            using (SqlConnection conn = new SqlConnection(Utility.SqlServerConnectionString))
+            {
+                conn.Open();
+                if (WhereString != "")
+                {
+                    CultureInfo ci = new CultureInfo("zh-cn");
+                    WhereString = (WhereString.Trim().StartsWith("and", true,ci))?WhereString:" and "+WhereString ;
+                }
+                string commandString = Command + WhereString;
+                var ds = SqlHelper.ExecuteDataset(conn, System.Data.CommandType.Text, commandString);
+                var tablist = ConvertToList(ds);
+                return tablist;
+            }
+        }
+        public int UpdateByCommandString(string Command, string WhereString)
+        {
+            using (SqlConnection conn = new SqlConnection(Utility.SqlServerConnectionString))
+            {
+                conn.Open();
+                if (WhereString != "")
+                {
+                    CultureInfo ci = new CultureInfo("zh-cn");
+                    WhereString = (WhereString.Trim().StartsWith("and", true, ci)) ? WhereString : " and " + WhereString;
+                }
+                string commandString = Command + WhereString;
+                var result = SqlHelper.ExecuteNonQuery(conn, System.Data.CommandType.Text, commandString);
+                return result;
             }
         }
     }

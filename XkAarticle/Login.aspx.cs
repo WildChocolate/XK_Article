@@ -6,12 +6,11 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using XkAarticle.ConcreteForm;
 
 
 namespace XkAarticle
 {
-    public partial class Login : LoginForm
+    public partial class Login : AbstractForm
     {
         protected void Page_Load(object sender, EventArgs e)
         {

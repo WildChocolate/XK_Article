@@ -9,12 +9,20 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    public class ColumnBLL:BaseBLL<Column>
+    public class ColumnBLL:BaseBLL<Column>,IColumn
     {
-        IColumn CommentDAL = ActiveProductGeter.CreateProduct<IColumn>();
+        IColumn ColumnDAL = ActiveProductGeter.CreateProduct<IColumn>();
         protected override IDAL.IBaseOperation<Column> ConcreteDAL
         {
-            get { return CommentDAL; }
+            get { return ColumnDAL; }
+        }
+        public override List<Column> GetAll(Column instance, string WhereString)
+        {
+            return base.GetAll(instance, WhereString).Take(8).ToList();
+        }
+        public List<Column> GetDataByCommandString(string command ,string WhereString)
+        {
+            return ColumnDAL.GetDataByCommandString(command,WhereString);
         }
     }
 }

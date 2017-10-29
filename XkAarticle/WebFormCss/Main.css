@@ -1,0 +1,47 @@
+﻿body {
+
+}
+*{
+    text-decoration:none;
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+.ColumnList{
+    /*position:fixed;
+    z-index:999;*/
+    border:1px solid #f7f2f2;
+    border-left:none;
+    border-right:none;
+    font-size:x-large;
+    text-align:center;
+    width:100%;
+}
+.ColumnList li{
+    background-color:#3f3f3f;
+    padding:15px 0 ;
+    width:25%;
+    float:left;
+}
+.ColumnList a{
+    color:rgb(248, 103, 0);
+}
+.ArticleReapter{
+    width:60%;
+    float:left;
+    position:relative;
+    z-index:1;
+    color:whitesmoke;
+}
+.FriendlinkList{
+    width:35%;
+    margin:auto;
+    float:right;
+}
+.FriendlinkList>dt,.FriendlinkList>dd{
+    margin:5px ;
+}
+.FriendlinkList>dd{
+    border-top:1px solid #f7f2f2;
+    border-bottom:1px solid #f7f2f2;
+}

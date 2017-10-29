@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace XkAarticle.ConcreteForm
+namespace XkAarticle.Test
 {
     public class MainForm:AbstractForm
     {

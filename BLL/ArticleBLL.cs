@@ -16,5 +16,6 @@ namespace BLL
         {
             get { return ArticleDAL; }
         }
+        
     }
 }

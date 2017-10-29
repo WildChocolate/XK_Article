@@ -1,0 +1,10 @@
+C:\Users\xuzhicheng\documents\visual studio 2013\Projects\XkArticle\SqlDAL\bin\Release\SqlDAL.dll.config
+C:\Users\xuzhicheng\documents\visual studio 2013\Projects\XkArticle\SqlDAL\bin\Release\SqlDAL.dll
+C:\Users\xuzhicheng\documents\visual studio 2013\Projects\XkArticle\SqlDAL\bin\Release\SqlDAL.pdb
+C:\Users\xuzhicheng\documents\visual studio 2013\Projects\XkArticle\SqlDAL\bin\Release\IDAL.dll
+C:\Users\xuzhicheng\documents\visual studio 2013\Projects\XkArticle\SqlDAL\bin\Release\Model.dll
+C:\Users\xuzhicheng\documents\visual studio 2013\Projects\XkArticle\SqlDAL\bin\Release\IDAL.pdb
+C:\Users\xuzhicheng\documents\visual studio 2013\Projects\XkArticle\SqlDAL\bin\Release\Model.pdb
+C:\Users\xuzhicheng\documents\visual studio 2013\Projects\XkArticle\SqlDAL\obj\Release\SqlDAL.csprojResolveAssemblyReference.cache
+C:\Users\xuzhicheng\documents\visual studio 2013\Projects\XkArticle\SqlDAL\obj\Release\SqlDAL.dll
+C:\Users\xuzhicheng\documents\visual studio 2013\Projects\XkArticle\SqlDAL\obj\Release\SqlDAL.pdb

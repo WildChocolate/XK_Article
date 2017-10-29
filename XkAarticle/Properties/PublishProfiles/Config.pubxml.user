@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+您 Web 项目的发布/打包进程将使用此文件。您可以通过编辑此 MSBuild 文件
+来自定义该进程的行为。若要了解与此相关的详细信息，请访问 http://go.microsoft.com/fwlink/?LinkID=208121。
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>G:\XK_AtrticleSystem</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/BLL.dll">
+      <publishTime>10/21/2017 21:28:50</publishTime>
+    </File>
+    <File Include="bin/Factory.dll">
+      <publishTime>10/21/2017 21:28:50</publishTime>
+    </File>
+    <File Include="bin/IDAL.dll">
+      <publishTime>10/21/2017 21:28:49</publishTime>
+    </File>
+    <File Include="bin/Model.dll">
+      <publishTime>10/21/2017 21:28:49</publishTime>
+    </File>
+    <File Include="bin/SqlDAL.dll">
+      <publishTime>10/21/2017 21:49:17</publishTime>
+    </File>
+    <File Include="bin/XkAarticle.dll">
+      <publishTime>10/21/2017 21:49:18</publishTime>
+    </File>
+    <File Include="Common.Master">
+      <publishTime>10/21/2017 16:12:27</publishTime>
+    </File>
+    <File Include="css/component.css">
+      <publishTime>10/11/2017 21:59:15</publishTime>
+    </File>
+    <File Include="css/demo.css">
+      <publishTime>10/11/2017 21:59:15</publishTime>
+    </File>
+    <File Include="css/normalize.css">
+      <publishTime>10/11/2017 21:59:15</publishTime>
+    </File>
+    <File Include="css/Register.css">
+      <publishTime>10/15/2017 00:26:30</publishTime>
+    </File>
+    <File Include="img/demo-1-bg.jpg">
+      <publishTime>10/11/2017 21:59:15</publishTime>
+    </File>
+    <File Include="img/login_ico.png">
+      <publishTime>10/11/2017 21:59:15</publishTime>
+    </File>
+    <File Include="img/registersideimg.png">
+      <publishTime>10/15/2017 00:10:11</publishTime>
+    </File>
+    <File Include="index.html">
+      <publishTime>10/14/2017 19:26:36</publishTime>
+    </File>
+    <File Include="js/demo-1.js">
+      <publishTime>10/11/2017 21:59:15</publishTime>
+    </File>
+    <File Include="js/EasePack.min.js">
+      <publishTime>10/11/2017 21:59:15</publishTime>
+    </File>
+    <File Include="js/html5.js">
+      <publishTime>10/11/2017 21:59:15</publishTime>
+    </File>
+    <File Include="js/rAF.js">
+      <publishTime>10/11/2017 21:59:15</publishTime>
+    </File>
+    <File Include="js/TweenLite.min.js">
+      <publishTime>10/11/2017 21:59:15</publishTime>
+    </File>
+    <File Include="Login.aspx">
+      <publishTime>10/21/2017 22:30:29</publishTime>
+    </File>
+    <File Include="Main.aspx">
+      <publishTime>10/21/2017 22:45:47</publishTime>
+    </File>
+    <File Include="Register.aspx">
+      <publishTime>10/15/2017 13:52:48</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>10/21/2017 21:28:52</publishTime>
+    </File>
+    <File Include="WebFormCss/Generic.css">
+      <publishTime>10/21/2017 23:01:51</publishTime>
+    </File>
+    <File Include="WebFormCss/Main.css">
+      <publishTime>10/21/2017 22:58:44</publishTime>
+    </File>
+    <File Include="WebFormImg/羽毛笔.png">
+      <publishTime>10/19/2017 00:23:27</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

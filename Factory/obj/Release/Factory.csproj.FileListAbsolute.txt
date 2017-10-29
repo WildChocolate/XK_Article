@@ -1,0 +1,10 @@
+C:\Users\xuzhicheng\documents\visual studio 2013\Projects\XkArticle\Factory\bin\Release\Factory.dll.config
+C:\Users\xuzhicheng\documents\visual studio 2013\Projects\XkArticle\Factory\bin\Release\Factory.dll
+C:\Users\xuzhicheng\documents\visual studio 2013\Projects\XkArticle\Factory\bin\Release\Factory.pdb
+C:\Users\xuzhicheng\documents\visual studio 2013\Projects\XkArticle\Factory\bin\Release\IDAL.dll
+C:\Users\xuzhicheng\documents\visual studio 2013\Projects\XkArticle\Factory\bin\Release\Model.dll
+C:\Users\xuzhicheng\documents\visual studio 2013\Projects\XkArticle\Factory\bin\Release\IDAL.pdb
+C:\Users\xuzhicheng\documents\visual studio 2013\Projects\XkArticle\Factory\bin\Release\Model.pdb
+C:\Users\xuzhicheng\documents\visual studio 2013\Projects\XkArticle\Factory\obj\Release\Factory.csprojResolveAssemblyReference.cache
+C:\Users\xuzhicheng\documents\visual studio 2013\Projects\XkArticle\Factory\obj\Release\Factory.dll
+C:\Users\xuzhicheng\documents\visual studio 2013\Projects\XkArticle\Factory\obj\Release\Factory.pdb

@@ -43,5 +43,19 @@ namespace BLL
         {
             return ConcreteDAL.GetOneByID(instance, id);
         }
+        /// <summary>
+        /// 根据command string 返回数据列表
+        /// </summary>
+        /// <param name="command">select [column]*x from [table] where 1=1</param>
+        /// <param name="WhereString">column=value and column2=value....</param>
+        /// <returns></returns>
+        public List<T> GetDataByCommandString(string command, string WhereString)
+        {
+            return ConcreteDAL.GetDataByCommandString(command,WhereString );
+        }
+        public int UpdateByCommandString(string command, string WhereString)
+        {
+            return ConcreteDAL.UpdateByCommandString(command, WhereString);
+        }
     }
 }

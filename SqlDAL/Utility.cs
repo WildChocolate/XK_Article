@@ -33,29 +33,32 @@ namespace SqlDAL
                     return ConfigurationManager.ConnectionStrings["ServerConnection"].ToString();
                 }
             }
-            public static string GetOperationStringBy<T>(ActionType action, T instance,string WhereString="") {
+            public static string GetOperationStringBy<T>(ActionType action, T instance,string WhereString="1=1") {
                 var type = instance.GetType();
                 string tableName = type.Name;
                 string s = "";
                 switch (action)
                 {
                     case ActionType.Delete:
-                        s = string.Format("delete from XK_{0} where 1=1 ", tableName);
+                        s = string.Format("delete from XK_{0} where 1=1 ", tableName );
                         break;
                     case ActionType.Insert:
                         var items=GetInsertString(type);
                         s = string.Format("insert into XK_{0} ({1}) values({2}) ",tableName,items.Item1,items.Item2);
                         break;
                     case ActionType.Update:
-                        s = string.Format("update XK_{0} set {1} where 1=1 ", tableName, GetUpdateString(type));
+                        s = string.Format("update XK_{0} set {1} where 1=1 ", tableName, GetUpdateString(type) );
                         break;
                     case ActionType.Select:
-                        s = string.Format("select * from XK_{0} where 1=1 ", tableName);
+                        s = string.Format("select * from XK_{0} where 1=1 ", tableName );
                         break;
                 }
                 if (WhereString.Length > 0 && action!=ActionType.Insert)
                 {
                     s += " and " + WhereString;
+                }
+                else if (action==ActionType.Insert){
+                    s += ";select @@identity";
                 }
                 return s;
             }
@@ -79,7 +82,7 @@ namespace SqlDAL
                     s += info.Name + "=@" + info.Name + ",";
                 }
                 s=s.TrimEnd(',');
-                s += " where ID=@ID";
+                //s += " where ID=@ID";
                 return s;
             }
             public static SqlParameter[] GetParameterArray<T>(ActionType action,T instance)
